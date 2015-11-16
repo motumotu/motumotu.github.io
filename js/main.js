@@ -1,5 +1,5 @@
 $(function() {
-    const BALL_NUM = 500;
+    const BALL_NUM = 4;
     const BALL_SIZE = 30;
     const BALL_SPEED = 5;
     const ICON_SIZE = 300;
@@ -83,13 +83,23 @@ $(function() {
         }
     }
     function draw() {
-        context.clearRect(0, 0, canvas.width, canvas.height);
+        //context.clearRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle="rgba(40,40,40,1)";
+        context.fillRect(0, 0, canvas.width, canvas.height);
         drawBall();
         //context.drawImage(imageIcon, (canvas.width - ICON_SIZE) / 2, (canvas.height - ICON_SIZE) / 2);
     }
     function drawBall() {
         for (var i = 0; i < BALL_NUM; i++) {
             context.drawImage(imageBall, ballPosX[i], ballPosY[i]);
+            for (var j = 0; j < BALL_NUM; j++) {
+                if (i == j) continue;
+                drawLine(
+                    ballPosX[i] + BALL_SIZE / 2,
+                    ballPosY[i] + BALL_SIZE / 2,
+                    ballPosX[j] + BALL_SIZE / 2,
+                    ballPosY[j] + BALL_SIZE / 2);
+            }
         }
     }
     window.addEventListener("resize", function() {
@@ -98,5 +108,13 @@ $(function() {
             settingCanvas();
         }, wait );
     }, false );
+
+    function drawLine(x1, y1, x2, y2) {
+        context.strokeStyle = 'rgb(240, 180, 100)';
+        context.beginPath();
+        context.moveTo(x1, y1);
+        context.lineTo(x2, y2);
+        context.stroke();
+    }
 })
 
