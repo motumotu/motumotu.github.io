@@ -38,10 +38,14 @@ $(function() {
         ballDireX = new Array();
         ballDireY = new Array();
         for (var i = 0; i < BALL_NUM; i++) {
-            ballPosX[i] = Math.floor(Math.random()*10000) % (canvas.width - BALL_SIZE);
-            ballPosY[i] = Math.floor(Math.random()*10000) % (canvas.height - BALL_SIZE);
+            ballPosX[i] = Math.floor(Math.random()* (canvas.width - BALL_SIZE));
+            ballPosY[i] = Math.floor(Math.random()* (canvas.height - BALL_SIZE));
             ballDireX[i] = Math.random();
             ballDireY[i] = Math.random();
+            var rnd1 = Math.floor(Math.random() * 2);
+            var rnd2 = Math.floor(Math.random() * 2);
+            if (rnd1 == 0) ballDireX[i] *= -1;
+            if (rnd2 == 0) ballDireY[i] *= -1;
         }
     }
     function loadImage() {
