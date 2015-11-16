@@ -84,7 +84,8 @@ $(function() {
     }
     function draw() {
         //context.clearRect(0, 0, canvas.width, canvas.height);
-        context.fillStyle="rgba(40,40,40,1)";
+        //context.fillStyle="rgba(40,40,40,1)";
+        context.fillStyle="rgba(255,255,255,1)";
         context.fillRect(0, 0, canvas.width, canvas.height);
         drawBall();
         //context.drawImage(imageIcon, (canvas.width - ICON_SIZE) / 2, (canvas.height - ICON_SIZE) / 2);
