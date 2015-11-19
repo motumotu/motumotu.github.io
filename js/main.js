@@ -91,6 +91,7 @@ $(function() {
         //context.drawImage(imageIcon, (canvas.width - ICON_SIZE) / 2, (canvas.height - ICON_SIZE) / 2);
     }
     function drawBall() {
+        // line
         for (var i = 0; i < BALL_NUM; i++) {
             context.drawImage(imageBall, ballPosX[i], ballPosY[i]);
             for (var j = 0; j < BALL_NUM; j++) {
@@ -101,6 +102,10 @@ $(function() {
                     ballPosX[j] + BALL_SIZE / 2,
                     ballPosY[j] + BALL_SIZE / 2);
             }
+        }
+        // ball
+        for (var i = 0; i < BALL_NUM; i++) {
+            context.drawImage(imageBall, ballPosX[i], ballPosY[i]);
         }
     }
     window.addEventListener("resize", function() {
